@@ -1,7 +1,7 @@
 # Apache-Cassandra-Load-Data
 O projeto consiste em uma solução para facilitar a inserção de dados em uma tabela do Cassandra a partir de um arquivo CSV. Ele utiliza o Pandas para ler o arquivo CSV e o módulo inserts_generator para gerar strings de inserção com base em definições de tabela fornecidas em um arquivo JSON.
 
-A função inserts_generator recebe o nome da tabela, o caminho para o arquivo CSV contendo os dados, o caminho para o arquivo JSON com a definição da tabela e uma lista opcional de funções derivadas. As funções derivadas são responsáveis por transformar os valores das colunas do CSV em formatos específicos para inserção no Cassandra. Por exemplo, algumas funções são fornecidas no código de exemplo, como getMainGenre, parseBudgetToFloat e parseIncomeToFloat, que realizam transformações nos valores das colunas antes de serem inseridos.
+A função inserts_generator recebe o nome da tabela, o caminho para o arquivo CSV contendo os dados, o caminho para o arquivo JSON com a definição da tabela e uma lista opcional de funções para gerar dados derivados. Essas funções são responsáveis por transformar os valores das colunas do CSV em formatos específicos para inserção no Cassandra. Por exemplo, algumas funções são fornecidas no código 'main.py' de exemplo, como getMainGenre, parseBudgetToFloat e parseIncomeToFloat, que realizam transformações nos valores das colunas antes de serem inseridos.
 
 ## Função `inserts_generator`
 
