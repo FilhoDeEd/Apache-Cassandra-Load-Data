@@ -1,0 +1,8 @@
+{
+    "imdb_title_id": "str",
+    "main_genre": "der_getMainGenre",
+    "genre": "set",
+    "main_coutry": "der_getMainCountry",
+    "country": "set",
+    "metascore": "float"
+}

@@ -1,0 +1,8 @@
+name: pyCassandra
+channels:
+  - defaults
+dependencies:
+  - python=3.8
+  - cassandra-driver
+  - pandas
+  - numpy

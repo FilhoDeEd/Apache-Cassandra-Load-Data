@@ -1,0 +1,20 @@
+{
+    "main_genre": "der_getMainGenre",
+    "date_published": "date",
+    "title": "str",
+    "imdb_title_id": "str",
+    "genre": "list",
+    "country": "set",
+    "duration": "int",
+    "production_company": "str",
+    "director": "list",
+    "actors": "set",
+    "writer": "set",
+    "description": "str",
+    "original_title": "str",
+    "budget": "der_parseBudgetToFloat",
+    "worldwide_gross_income": "der_parseIncomeToFloat",
+    "metascore": "float",
+    "vote": "int",
+    "language": "list"
+}
