@@ -5,16 +5,18 @@ from typing import List, Callable
 
 def inserts_generator(table_name: str, dataFrameCsvPath: str, insertDefinitionPath: str, derivateFunctions: List[Callable] = None):
     """
-@ Explicar como funciona a função de forma geral.
+Gera strings de inserção para uma tabela a partir de um arquivo CSV e uma definição de tabela em formato JSON.
+Ele também suporta funções derivadas para transformar os valores das colunas antes da inserção. Essas strings
+de inserção podem ser usadas posteriormente para inserir os dados em uma tabela de um banco de dados, como o Cassandra.
 
 • table_name:
     Nome da tabela que irá receber os inserts. Esse nome será utilizado para nomear o JSON que contém as strings de insert values.
 
 • dataFrameCsvPath:
-    Caminho para o csv que contém os dados. Garanta que o Pandas pode ler esse arquivo por meio do método pandas.read_csv().
+    Caminho para o csv que contém os dados. Garanta que o Pandas possa ler esse arquivo por meio do método pandas.read_csv().
 
 • insertDefinitionPath:
-    Caminho para o JSON que especifica a definição da tabela
+    Caminho para o JSON que especifica a definição da tabela.
 
 • derivateFunctions:
     As funções em derivateFunction devem receber um Pandas Series do mesmo tipo que o especificado em dataFrameCsvPath.
