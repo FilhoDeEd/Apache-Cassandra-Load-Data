@@ -78,25 +78,25 @@ Esse código pode ser utilizado para facilitar a geração de strings de inserç
 
 ### JSON da tabela film_by_genre
 
-{
-    "main_genre": "der_getMainGenre",\n
-    "date_published": "date",
-    "title": "clusK_str_undefined",
-    "imdb_title_id": "str",
-    "genre": "list",
-    "country": "set",
-    "duration": "int",
-    "production_company": "str",
-    "director": "list",
-    "actors": "set",
-    "writer": "set",
-    "description": "str",
-    "original_title": "str",
-    "budget": "der_parseBudgetToFloat",
-    "worldwide_gross_income": "der_parseIncomeToFloat",
-    "metascore": "float",
-    "votes": "int",
-    "language": "list"
+{<br>
+    "main_genre": "der_getMainGenre",<br>
+    "date_published": "date",<br>
+    "title": "clusK_str_undefined",<br>
+    "imdb_title_id": "str",<br>
+    "genre": "list",<br>
+    "country": "set",<br>
+    "duration": "int",<br>
+    "production_company": "str",<br>
+    "director": "list",<br>
+    "actors": "set",<br>
+    "writer": "set",<br>
+    "description": "str",<br>
+    "original_title": "str",<br>
+    "budget": "der_parseBudgetToFloat",<br>
+    "worldwide_gross_income": "der_parseIncomeToFloat",<br>
+    "metascore": "float",<br>
+    "votes": "int",<br>
+    "language": "list"<br>
 }
 
 O JSON de exemplo especifica a definição de uma tabela, onde cada atributo representa uma coluna na tabela real. A ordem e os nomes dos atributos no JSON devem corresponder exatamente aos da tabela. Aqui está uma descrição dos atributos do JSON:
@@ -109,19 +109,19 @@ O JSON de exemplo especifica a definição de uma tabela, onde cada atributo rep
 
 - `"imdb_title_id": "str"`: A coluna "imdb_title_id" será do tipo texto (text ou varchar).
 
-- `"genre": "list"`: A coluna "genre" será do tipo lista de texto (list<text>).
+- `"genre": "list"`: A coluna "genre" será do tipo lista de texto (list\&lttext>).
 
-- `"country": "set"`: A coluna "country" será do tipo conjunto de texto (set<text>).
+- `"country": "set"`: A coluna "country" será do tipo conjunto de texto (set\&lttext>).
 
 - `"duration": "int"`: A coluna "duration" será do tipo inteiro (int).
 
 - `"production_company": "str"`: A coluna "production_company" será do tipo texto (text ou varchar).
 
-- `"director": "list"`: A coluna "director" será do tipo lista de texto (list<text>).
+- `"director": "list"`: A coluna "director" será do tipo lista de texto (list\&lttext>).
 
-- `"actors": "set"`: A coluna "actors" será do tipo conjunto de texto (set<text>).
+- `"actors": "set"`: A coluna "actors" será do tipo conjunto de texto (set\&lttext>).
 
-- `"writer": "set"`: A coluna "writer" será do tipo conjunto de texto (set<text>).
+- `"writer": "set"`: A coluna "writer" será do tipo conjunto de texto (set\&lttext>).
 
 - `"description": "str"`: A coluna "description" será do tipo texto (text ou varchar).
 
@@ -135,11 +135,11 @@ O JSON de exemplo especifica a definição de uma tabela, onde cada atributo rep
 
 - `"votes": "int"`: A coluna "votes" será do tipo inteiro (int).
 
-- `"language": "list"`: A coluna "language" será do tipo lista de texto (list<text>).
+- `"language": "list"`: A coluna "language" será do tipo lista de texto (list\&lttext>).
 
 Essa definição do JSON especifica a estrutura da tabela, incluindo os tipos de dados das colunas, bem como as funções derivadas, quando aplicável, para obter os valores das colunas.
 
-A função inserts_generator foi projetada para lidar somente com colunas do tipo lista (list) e conjunto (set) contendo valores textuais. Não tente utilizá-la para gerar 'list<int>', 'set<float>' ou qualquer outro tipo multivalorado sem antes alterar como a lógica da função funciona.
+A função inserts_generator foi projetada para lidar somente com colunas do tipo lista (list) e conjunto (set) contendo valores textuais. Não tente utilizá-la para gerar list\&ltint>, set\&ltfloat> ou qualquer outro tipo multivalorado sem antes alterar como a lógica da função funciona.
 
 ## Função `main`
 
