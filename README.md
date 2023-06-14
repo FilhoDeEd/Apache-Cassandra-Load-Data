@@ -3,6 +3,31 @@ O projeto consiste em uma solução para facilitar a inserção de dados em uma 
 
 A função inserts_generator recebe o nome da tabela, o caminho para o arquivo CSV contendo os dados, o caminho para o arquivo JSON com a definição da tabela e uma lista opcional de funções para gerar dados derivados. Essas funções são responsáveis por transformar os valores das colunas do CSV em formatos específicos para inserção no Cassandra. Por exemplo, algumas funções são fornecidas no código 'main.py' de exemplo, como getMainGenre, parseBudgetToFloat e parseIncomeToFloat, que realizam transformações nos valores das colunas antes de serem inseridos.
 
+## Requisitos para Executar o Software
+
+### Banco de Dados Cassandra
+
+Certifique-se de ter o Cassandra instalado e em execução localmente. O software depende de uma conexão com o Cassandra para realizar as operações de inserção.
+
+### Ambiente Anaconda ou Miniconda (opcional)
+
+Recomenda-se a criação de um ambiente isolado usando o Anaconda ou Miniconda para instalar as dependências necessárias. Isso ajuda a evitar conflitos com outras bibliotecas e versões do Python.
+
+#### Criação do Ambiente
+
+1. Abra o terminal ou prompt de comando e navegue até o diretório do projeto, onde o arquivo `environment.yml` está localizado.
+2. Execute o seguinte comando para criar o ambiente:
+
+`conda env create -f environment.yml`
+
+3. Aguarde até que todas as dependências sejam instaladas.
+
+#### Ativação do Ambiente
+
+Após a conclusão da criação do ambiente, ative-o usando o seguinte comando:
+
+`conda activate pyCassandra`
+
 ## Função `inserts_generator`
 
 A função `inserts_generator` é responsável por gerar strings de inserção (insert) para uma tabela de banco de dados a partir de um arquivo CSV e uma definição da tabela em formato JSON.
