@@ -49,7 +49,6 @@ def parseIncomeToFloat(row: Series) -> str:
             return str(value)
       
 
-database_name = 'trabalho_bd2'
 keyspace_name = 'tables'
 table_name = 'film_by_genre'
 batchSize = 500
