@@ -139,7 +139,7 @@ O JSON de exemplo especifica a definição de uma tabela, onde cada atributo rep
 
 Essa definição do JSON especifica a estrutura da tabela, incluindo os tipos de dados das colunas, bem como as funções derivadas, quando aplicável, para obter os valores das colunas.
 
-A função inserts_generator foi projetada para lidar somente com colunas do tipo lista (list) e conjunto (set) contendo valores textuais. Não tente utilizá-la para gerar list<int>, set<float> ou qualquer outro tipo multivalorado sem antes alterar como a lógica da função funciona.
+A função inserts_generator foi projetada para lidar somente com colunas do tipo lista (list) e conjunto (set) contendo valores textuais. Não tente utilizá-la para gerar 'list<int>', 'set<float>' ou qualquer outro tipo multivalorado sem antes alterar como a lógica da função funciona.
 
 ## Função `main`
 
