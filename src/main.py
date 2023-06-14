@@ -56,7 +56,7 @@ tuplesAmount = 25000
 derivateFunctions = [getMainGenre, parseBudgetToFloat, parseIncomeToFloat]
 
 def main():
-      inserts_generator(table_name, 'csv/all_df.csv', f'insert_definitions/{table_name}_def.json',derivateFunctions)
+      inserts_generator(table_name, 'csv/all_df.csv', f'table_definitions/{table_name}_def.json',derivateFunctions)
 
       cluster = Cluster(['localhost'])
       session = cluster.connect()
@@ -64,7 +64,7 @@ def main():
       with open(f'insert_values/{table_name}.json') as file:
             insertStringsValues = json.load(file)
 
-      with open(f'insert_definitions/{table_name}_def.json') as file:
+      with open(f'table_definitions/{table_name}_def.json') as file:
             insertDefinition = json.load(file)
 
       columns = insertDefinition.keys()
