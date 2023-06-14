@@ -29,9 +29,7 @@ A função `inserts_generator` é responsável por gerar strings de inserção (
    - Se a função não for encontrada na lista, uma exceção `ValueError` é lançada.
    - A função derivada é chamada com a série atual da linha e o valor de retorno é adicionado à string de inserção.
    - Caso contrário, verifica se o tipo da coluna contém a substring "clusK_" indicando que é uma chave de cluster.
-   - Se for uma chave de cluster, extrai o tipo e o valor padrão
-
- da substring.
+   - Se for uma chave de cluster, extrai o tipo e o valor padrão da substring.
    - Verifica se o valor na coluna é um valor nulo (`NaN`) e, se for o caso:
      - Se for uma chave de cluster, adiciona o valor padrão adequado à string de inserção.
      - Caso contrário, adiciona a string "NULL" à string de inserção.
