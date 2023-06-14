@@ -3,7 +3,7 @@ import json
 from typing import List, Callable
 
 
-def inserts_generator(table_name: str, dataFrameCsvPath: str, insertDefinitionPath: str, derivateFunctions: List[Callable] = None):
+def inserts_generator(table_name: str, dataFrameCsvPath: str, tableDefinitionPath: str, derivateFunctions: List[Callable] = None):
     """
 Gera strings de inserção para uma tabela a partir de um arquivo CSV e uma definição de tabela em formato JSON.
 Ele também suporta funções derivadas para transformar os valores das colunas antes da inserção. Essas strings
@@ -15,7 +15,7 @@ de inserção podem ser usadas posteriormente para inserir os dados em uma tabel
 • dataFrameCsvPath:
     Caminho para o csv que contém os dados. Garanta que o Pandas possa ler esse arquivo por meio do método pandas.read_csv().
 
-• insertDefinitionPath:
+• tableDefinitionPath:
     Caminho para o JSON que especifica a definição da tabela.
 
 • derivateFunctions:
@@ -28,10 +28,10 @@ de inserção podem ser usadas posteriormente para inserir os dados em uma tabel
 
     dataFrame = pd.read_csv(dataFrameCsvPath)
 
-    with open(insertDefinitionPath) as file:
-        insertDefinition: dict[str, str] = json.load(file)
+    with open(tableDefinitionPath) as file:
+        tableDefinition: dict[str, str] = json.load(file)
 
-    columns = insertDefinition.keys()
+    columns = tableDefinition.keys()
 
     insertStrings = []
 
@@ -41,7 +41,7 @@ de inserção podem ser usadas posteriormente para inserir os dados em uma tabel
 
         for column in columns:
 
-            type = insertDefinition[column]
+            type = tableDefinition[column]
             
             if 'der_' in type:
 
