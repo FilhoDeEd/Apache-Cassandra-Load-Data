@@ -79,24 +79,24 @@ Esse código pode ser utilizado para facilitar a geração de strings de inserç
 ### JSON da tabela film_by_genre
 
 {<br>
-    "main_genre": "der_getMainGenre",<br>
-    "date_published": "date",<br>
-    "title": "clusK_str_undefined",<br>
-    "imdb_title_id": "str",<br>
-    "genre": "list",<br>
-    "country": "set",<br>
-    "duration": "int",<br>
-    "production_company": "str",<br>
-    "director": "list",<br>
-    "actors": "set",<br>
-    "writer": "set",<br>
-    "description": "str",<br>
-    "original_title": "str",<br>
-    "budget": "der_parseBudgetToFloat",<br>
-    "worldwide_gross_income": "der_parseIncomeToFloat",<br>
-    "metascore": "float",<br>
-    "votes": "int",<br>
-    "language": "list"<br>
+    <pre>"main_genre": "der_getMainGenre",<br>
+    <pre>"date_published": "date",<br>
+    <pre>"title": "clusK_str_undefined",<br>
+    <pre>"imdb_title_id": "str",<br>
+    <pre>"genre": "list",<br>
+    <pre>"country": "set",<br>
+    <pre>"duration": "int",<br>
+    <pre>"production_company": "str",<br>
+    <pre>"director": "list",<br>
+    <pre>"actors": "set",<br>
+    <pre>"writer": "set",<br>
+    <pre>"description": "str",<br>
+    <pre>"original_title": "str",<br>
+    <pre>"budget": "der_parseBudgetToFloat",<br>
+    <pre>"worldwide_gross_income": "der_parseIncomeToFloat",<br>
+    <pre>"metascore": "float",<br>
+    <pre>"votes": "int",<br>
+    <pre>"language": "list"<br>
 }
 
 O JSON de exemplo especifica a definição de uma tabela, onde cada atributo representa uma coluna na tabela real. A ordem e os nomes dos atributos no JSON devem corresponder exatamente aos da tabela. Aqui está uma descrição dos atributos do JSON:
@@ -121,7 +121,7 @@ O JSON de exemplo especifica a definição de uma tabela, onde cada atributo rep
 
 - `"actors": "set"`: A coluna "actors" será do tipo conjunto de texto (set\&lttext>).
 
-- `"writer": "set"`: A coluna "writer" será do tipo conjunto de texto (set\&lttext>).
+- `"writer": "set"`: A coluna "writer" será do tipo conjunto de texto (set\<text>).
 
 - `"description": "str"`: A coluna "description" será do tipo texto (text ou varchar).
 
@@ -135,11 +135,11 @@ O JSON de exemplo especifica a definição de uma tabela, onde cada atributo rep
 
 - `"votes": "int"`: A coluna "votes" será do tipo inteiro (int).
 
-- `"language": "list"`: A coluna "language" será do tipo lista de texto (list\&lttext>).
+- `"language": "list"`: A coluna "language" será do tipo lista de texto (list\<text>).
 
 Essa definição do JSON especifica a estrutura da tabela, incluindo os tipos de dados das colunas, bem como as funções derivadas, quando aplicável, para obter os valores das colunas.
 
-A função inserts_generator foi projetada para lidar somente com colunas do tipo lista (list) e conjunto (set) contendo valores textuais. Não tente utilizá-la para gerar list\&ltint>, set\&ltfloat> ou qualquer outro tipo multivalorado sem antes alterar como a lógica da função funciona.
+A função inserts_generator foi projetada para lidar somente com colunas do tipo lista (list) e conjunto (set) contendo valores textuais. Não tente utilizá-la para gerar list\<int>, set\<float> ou qualquer outro tipo multivalorado sem antes alterar como a lógica da função funciona.
 
 ## Função `main`
 
