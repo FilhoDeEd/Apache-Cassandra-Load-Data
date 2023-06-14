@@ -28,6 +28,14 @@ Após a conclusão da criação do ambiente, ative-o usando o seguinte comando:
 
 Agora você está pronto para executar o software com todas as dependências instaladas corretamente no ambiente.
 
+### Obtendo os dados
+
+Os dados para este projeto podem ser obtidos no site Kaggle. Você pode acessar os dados do conjunto de dados "IMDB Movies Dataset" por meio do seguinte link: [IMDB Movies Dataset](https://www.kaggle.com/datasets/soumyasacharya/imdb-movies-dataset).
+
+Neste conjunto de dados, você encontrará informações sobre filmes, como títulos, gêneros, países de produção, duração, orçamento, receita bruta mundial, classificação, entre outros. Esses dados podem ser utilizados para realizar inserções em uma tabela de um banco de dados, como o Cassandra, utilizando o software mencionado neste projeto.
+
+Certifique-se de baixar o conjunto de dados apropriado e adaptar o caminho do arquivo CSV no código, de acordo com o local onde você salvou os dados em sua máquina.
+
 ## Função `inserts_generator`
 
 A função `inserts_generator` é responsável por gerar strings de inserção (insert) para uma tabela de banco de dados a partir de um arquivo CSV e uma definição da tabela em formato JSON.
@@ -36,15 +44,15 @@ A função `inserts_generator` é responsável por gerar strings de inserção (
 
 - `table_name` (str): Nome da tabela que irá receber os inserts. Esse nome será utilizado para nomear o JSON que contém as strings de insert values.
 - `dataFrameCsvPath` (str): Caminho para o arquivo CSV que contém os dados. Garanta que o Pandas possa ler esse arquivo por meio do método `pandas.read_csv()`.
-- `insertDefinitionPath` (str): Caminho para o arquivo JSON que especifica a definição da tabela.
+- `tableDefinitionPath` (str): Caminho para o arquivo JSON que especifica a definição da tabela.
 - `derivateFunctions` (List[Callable], opcional): Uma lista de funções derivadas. As funções em `derivateFunctions` devem receber um Pandas Series do mesmo tipo que o especificado em `dataFrameCsvPath`. Além disso, a função deve retornar exatamente a string a ser inclusa nas strings de insert values. Mesmo as aspas simples próprias de campos textuais devem ser inclusas nessa string de retorno. Você deve tratar possíveis valores NaN na sua função. Nesses casos, retorne a string `NULL`, a menos que o atributo derivado seja uma Cluster Key, nesse caso, retorne o valor adequado (talvez um valor padrão). O arquivo main.py possui exemplos de como definir essas funções.
 
 ### Funcionamento
 
 1. Importa os módulos necessários: `pandas` para manipulação de dados em formato tabular, `json` para trabalhar com arquivos JSON e `typing` para fornecer tipos de dados.
 2. Carrega os dados do arquivo CSV especificado em `dataFrameCsvPath` usando o método `pd.read_csv()` do Pandas e armazena-os em um objeto DataFrame chamado `dataFrame`.
-3. Abre o arquivo JSON especificado em `insertDefinitionPath` usando a função `open()` e carrega o conteúdo em um dicionário chamado `insertDefinition` usando a função `json.load()`.
-4. Obtém as colunas da tabela a partir das chaves do dicionário `insertDefinition`.
+3. Abre o arquivo JSON especificado em `tableDefinitionPath` usando a função `open()` e carrega o conteúdo em um dicionário chamado `tableDefinition` usando a função `json.load()`.
+4. Obtém as colunas da tabela a partir das chaves do dicionário `tableDefinition`.
 5. Inicializa uma lista vazia chamada `insertStrings` que será usada para armazenar as strings de inserção geradas.
 6. Itera sobre as linhas do DataFrame usando o método `iterrows()`, que retorna um iterador que produz um índice de linha e uma série contendo os valores de cada linha.
 7. Inicializa uma string `insertString` que será usada para construir a string de inserção para cada linha.
@@ -87,7 +95,7 @@ Esse código pode ser utilizado para facilitar a geração de strings de inserç
     "budget": "der_parseBudgetToFloat",
     "worldwide_gross_income": "der_parseIncomeToFloat",
     "metascore": "float",
-    "vote": "int",
+    "votes": "int",
     "language": "list"
 }
 
