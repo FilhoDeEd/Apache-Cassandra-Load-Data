@@ -109,15 +109,15 @@ O JSON de exemplo especifica a definição de uma tabela, onde cada atributo rep
 
 - `"imdb_title_id": "str"`: A coluna "imdb_title_id" será do tipo texto (text ou varchar).
 
-- `"genre": "list"`: A coluna "genre" será do tipo lista de texto (list\&lttext>).
+- `"genre": "list"`: A coluna "genre" será do tipo lista de texto (list\<text>).
 
-- `"country": "set"`: A coluna "country" será do tipo conjunto de texto (set\&lttext>).
+- `"country": "set"`: A coluna "country" será do tipo conjunto de texto (set\<text>).
 
 - `"duration": "int"`: A coluna "duration" será do tipo inteiro (int).
 
 - `"production_company": "str"`: A coluna "production_company" será do tipo texto (text ou varchar).
 
-- `"director": "list"`: A coluna "director" será do tipo lista de texto (list\&lttext>).
+- `"director": "list"`: A coluna "director" será do tipo lista de texto (list\<text>).
 
 - `"actors": "set"`: A coluna "actors" será do tipo conjunto de texto (set\&lttext>).
 
