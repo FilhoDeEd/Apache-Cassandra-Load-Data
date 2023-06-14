@@ -107,3 +107,27 @@ O JSON de exemplo especifica a definição de uma tabela, onde cada atributo rep
 Essa definição do JSON especifica a estrutura da tabela, incluindo os tipos de dados das colunas, bem como as funções derivadas, quando aplicável, para obter os valores das colunas.
 
 A função inserts_generator foi projetada para lidar somente com colunas do tipo lista (list) e conjunto (set) contendo valores textuais. Não tente utilizá-la para gerar list<int>, set<float> ou qualquer outro tipo multivalorado sem antes alterar como a lógica da função funciona.
+
+## Função `main`
+
+A função `main` no arquivo `main.py` é responsável pela execução principal do seu software. Ela realiza as seguintes etapas:
+
+1. Chama a função `inserts_generator` para gerar os valores dos inserts com base nos arquivos CSV e nas definições da tabela. Essa função cria um arquivo JSON contendo os valores de inserção para cada linha do CSV.
+
+2. Cria uma conexão com o banco de dados Cassandra, usando a classe `Cluster` e o método `connect()`. Certifique-se de ter a biblioteca `cassandra-driver` instalada para poder usar essas funcionalidades.
+
+3. Carrega os valores de inserção do arquivo JSON gerado anteriormente e as definições da tabela do arquivo JSON correspondente.
+
+4. Monta a string de inserção da tabela definindo o esquema da consulta. Percorre as colunas da tabela e as adiciona à string, separadas por vírgula.
+
+5. Inicia um loop para inserir os valores em lotes (batches) no banco de dados. A cada iteração do loop, cria um objeto `BatchStatement` vazio para armazenar as instruções de inserção em lote.
+
+6. Dentro do loop, itera pelo número de inserções em cada lote (definido pela variável `batchSize`) e adiciona as instruções de inserção ao objeto `BatchStatement` usando o método `add()`.
+
+7. Executa o lote de inserções chamando o método `execute()` na sessão do banco de dados, passando o objeto `BatchStatement` como parâmetro.
+
+8. Repete as etapas 5 a 7 até que todas as inserções tenham sido realizadas.
+
+Essa função permite a inserção eficiente de um grande número de registros no banco de dados Cassandra, dividindo-os em lotes menores. Isso ajuda a melhorar o desempenho e a evitar possíveis problemas de sobrecarga.
+
+Certifique-se de ter configurado corretamente as informações de conexão com o banco de dados no código, como o endereço do cluster Cassandra, o nome do keyspace e o nome da tabela.
