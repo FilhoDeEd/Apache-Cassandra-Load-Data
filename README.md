@@ -95,7 +95,7 @@ Esse código pode ser utilizado para facilitar a geração de strings de inserç
     "budget": "der_parseBudgetToFloat",
     "worldwide_gross_income": "der_parseIncomeToFloat",
     "metascore": "float",
-    "vote": "int",
+    "votes": "int",
     "language": "list"
 }
 
