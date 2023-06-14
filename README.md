@@ -79,7 +79,7 @@ Esse código pode ser utilizado para facilitar a geração de strings de inserç
 ### JSON da tabela film_by_genre
 
 {
-    "main_genre": "der_getMainGenre",
+    "main_genre": "der_getMainGenre",\n
     "date_published": "date",
     "title": "clusK_str_undefined",
     "imdb_title_id": "str",
