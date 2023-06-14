@@ -28,6 +28,8 @@ Após a conclusão da criação do ambiente, ative-o usando o seguinte comando:
 
 `conda activate pyCassandra`
 
+Agora você está pronto para executar o software com todas as dependências instaladas corretamente no ambiente.
+
 ## Função `inserts_generator`
 
 A função `inserts_generator` é responsável por gerar strings de inserção (insert) para uma tabela de banco de dados a partir de um arquivo CSV e uma definição da tabela em formato JSON.
