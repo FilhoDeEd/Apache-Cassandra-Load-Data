@@ -37,7 +37,7 @@ A função `inserts_generator` é responsável por gerar strings de inserção (
 - `table_name` (str): Nome da tabela que irá receber os inserts. Esse nome será utilizado para nomear o JSON que contém as strings de insert values.
 - `dataFrameCsvPath` (str): Caminho para o arquivo CSV que contém os dados. Garanta que o Pandas possa ler esse arquivo por meio do método `pandas.read_csv()`.
 - `insertDefinitionPath` (str): Caminho para o arquivo JSON que especifica a definição da tabela.
-- `derivateFunctions` (List[Callable], opcional): Uma lista de funções derivadas. As funções em `derivateFunctions` devem receber um Pandas Series do mesmo tipo que o especificado em `dataFrameCsvPath`. Além disso, a função deve retornar exatamente a string a ser inclusa nas strings de INSERT. Mesmo as aspas simples próprias de campos textuais devem ser inclusas nessa string de retorno. Você deve tratar possíveis valores NaN na sua função. Nesses casos, retorne a string `NULL`, a menos que o atributo derivado seja uma Cluster Key, nesse caso, retorne o valor adequado (talvez um valor padrão).
+- `derivateFunctions` (List[Callable], opcional): Uma lista de funções derivadas. As funções em `derivateFunctions` devem receber um Pandas Series do mesmo tipo que o especificado em `dataFrameCsvPath`. Além disso, a função deve retornar exatamente a string a ser inclusa nas strings de insert values. Mesmo as aspas simples próprias de campos textuais devem ser inclusas nessa string de retorno. Você deve tratar possíveis valores NaN na sua função. Nesses casos, retorne a string `NULL`, a menos que o atributo derivado seja uma Cluster Key, nesse caso, retorne o valor adequado (talvez um valor padrão). O arquivo main.py possui exemplos de como definir essas funções.
 
 ### Funcionamento
 
