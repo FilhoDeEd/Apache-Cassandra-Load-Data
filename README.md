@@ -42,3 +42,70 @@ A função `inserts_generator` é responsável por gerar strings de inserção (
 10. Abre um arquivo no diretório "insert_values" com o nome da tabela especificada e a extensão ".json" e escreve a representação JSON das strings de inserção nesse arquivo.
 
 Esse código pode ser utilizado para facilitar a geração de strings de inserção para um banco de dados a partir de dados em um arquivo CSV. As strings de inserção geradas podem ser usadas posteriormente para inserir os dados em uma tabela do banco de dados.
+
+## Exemplo de como compor o JSON de definição da tabela
+
+### JSON da tabela film_by_genre
+
+{
+    "main_genre": "der_getMainGenre",
+    "date_published": "date",
+    "title": "clusK_str_undefined",
+    "imdb_title_id": "str",
+    "genre": "list",
+    "country": "set",
+    "duration": "int",
+    "production_company": "str",
+    "director": "list",
+    "actors": "set",
+    "writer": "set",
+    "description": "str",
+    "original_title": "str",
+    "budget": "der_parseBudgetToFloat",
+    "worldwide_gross_income": "der_parseIncomeToFloat",
+    "metascore": "float",
+    "vote": "int",
+    "language": "list"
+}
+
+O JSON de exemplo especifica a definição de uma tabela, onde cada atributo representa uma coluna na tabela real. A ordem e os nomes dos atributos no JSON devem corresponder exatamente aos da tabela. Aqui está uma descrição dos atributos do JSON:
+
+- `"main_genre": "der_getMainGenre"`: A coluna "main_genre" será derivada usando a função "getMainGenre". Essa função recebe uma série Pandas e retorna o valor apropriado para a coluna. Procure pela definição dessa função no arquivo `main.py`.
+
+- `"date_published": "date"`: A coluna "date_published" será do tipo "date".
+
+- `"title": "clusK_str_undefined"`: A coluna "title" será uma chave de cluster do tipo texto (text ou varchar). Chaves de cluster não podem ser nulas, assim, se um NaN for econtrado no data frame, o valor inserido será o padrão. Nesse caso, o padrão é 'undefined'.
+
+- `"imdb_title_id": "str"`: A coluna "imdb_title_id" será do tipo texto (text ou varchar).
+
+- `"genre": "list"`: A coluna "genre" será do tipo lista de texto (list<text>).
+
+- `"country": "set"`: A coluna "country" será do tipo conjunto de texto (set<text>).
+
+- `"duration": "int"`: A coluna "duration" será do tipo inteiro (int).
+
+- `"production_company": "str"`: A coluna "production_company" será do tipo texto (text ou varchar).
+
+- `"director": "list"`: A coluna "director" será do tipo lista de texto (list<text>).
+
+- `"actors": "set"`: A coluna "actors" será do tipo conjunto de texto (set<text>).
+
+- `"writer": "set"`: A coluna "writer" será do tipo conjunto de texto (set<text>).
+
+- `"description": "str"`: A coluna "description" será do tipo texto (text ou varchar).
+
+- `"original_title": "str"`: A coluna "original_title" será do tipo texto (text ou varchar).
+
+- `"budget": "der_parseBudgetToFloat"`: A coluna "budget" será derivada usando a função "parseBudgetToFloat". Procure essa função no arquivo `main.py`.
+
+- `"worldwide_gross_income": "der_parseIncomeToFloat"`: A coluna "worldwide_gross_income" será derivada usando a função "parseIncomeToFloat". Procure essa função no arquivo `main.py`.
+
+- `"metascore": "float"`: A coluna "metascore" será do tipo float.
+
+- `"votes": "int"`: A coluna "votes" será do tipo inteiro (int).
+
+- `"language": "list"`: A coluna "language" será do tipo lista de texto (list<text>).
+
+Essa definição do JSON especifica a estrutura da tabela, incluindo os tipos de dados das colunas, bem como as funções derivadas, quando aplicável, para obter os valores das colunas.
+
+A função inserts_generator foi projetada para lidar somente com colunas do tipo lista (list) e conjunto (set) contendo valores textuais. Não tente utilizá-la para gerar list<int>, set<float> ou qualquer outro tipo multivalorado sem antes alterar como a lógica da função funciona.
