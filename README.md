@@ -28,6 +28,14 @@ Após a conclusão da criação do ambiente, ative-o usando o seguinte comando:
 
 Agora você está pronto para executar o software com todas as dependências instaladas corretamente no ambiente.
 
+### Obtendo os dados
+
+Os dados para este projeto podem ser obtidos no site Kaggle. Você pode acessar os dados do conjunto de dados "IMDB Movies Dataset" por meio do seguinte link: [IMDB Movies Dataset](https://www.kaggle.com/datasets/soumyasacharya/imdb-movies-dataset).
+
+Neste conjunto de dados, você encontrará informações sobre filmes, como títulos, gêneros, países de produção, duração, orçamento, receita bruta mundial, classificação, entre outros. Esses dados podem ser utilizados para realizar inserções em uma tabela de um banco de dados, como o Cassandra, utilizando o software mencionado neste projeto.
+
+Certifique-se de baixar o conjunto de dados apropriado e adaptar o caminho do arquivo CSV no código, de acordo com o local onde você salvou os dados em sua máquina.
+
 ## Função `inserts_generator`
 
 A função `inserts_generator` é responsável por gerar strings de inserção (insert) para uma tabela de banco de dados a partir de um arquivo CSV e uma definição da tabela em formato JSON.
