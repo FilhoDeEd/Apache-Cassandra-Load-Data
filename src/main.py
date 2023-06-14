@@ -49,7 +49,7 @@ def parseIncomeToFloat(row: Series) -> str:
             return str(value)
       
 
-keyspace_name = 'tables'
+keyspace_name = 'mainkeyspace'
 table_name = 'film_by_genre'
 batchSize = 500
 tuplesAmount = 25000
