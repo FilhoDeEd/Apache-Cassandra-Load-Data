@@ -1,5 +1,5 @@
 {
-    "main_genre": "der_getMainGenre",
+    "main_language": "der_getMainLanguage",
     "date_published": "date",
     "original_title": "str",
     "imdb_title_id": "str",

@@ -81,10 +81,11 @@ Esse código pode ser utilizado para facilitar a geração de strings de inserç
 {<br>
     "main_genre": "der_getMainGenre",<br>
     "date_published": "date",<br>
-    "title": "clusK_str_undefined",<br>
+    "original_title": "clusK_str_undefined",<br>
     "imdb_title_id": "str",<br>
     "genre": "list",<br>
-    "country": "set",<br>
+    "country": "list",<br>
+    "language": "list",<br>
     "duration": "int",<br>
     "production_company": "str",<br>
     "director": "list",<br>
@@ -94,9 +95,8 @@ Esse código pode ser utilizado para facilitar a geração de strings de inserç
     "original_title": "str",<br>
     "budget": "der_parseBudgetToFloat",<br>
     "worldwide_gross_income": "der_parseIncomeToFloat",<br>
-    "metascore": "float",<br>
-    "votes": "int",<br>
-    "language": "list"<br>
+    "avg_vote": "float",<br>
+    "votes": "int"<br>
 }
 
 O JSON de exemplo especifica a definição de uma tabela, onde cada atributo representa uma coluna na tabela real. A ordem e os nomes dos atributos no JSON devem corresponder exatamente aos da tabela. Aqui está uma descrição dos atributos do JSON:
@@ -105,13 +105,15 @@ O JSON de exemplo especifica a definição de uma tabela, onde cada atributo rep
 
 - `"date_published": "date"`: A coluna "date_published" será do tipo "date".
 
-- `"title": "clusK_str_undefined"`: A coluna "title" será uma chave de cluster do tipo texto (text ou varchar). Chaves de cluster não podem ser nulas, assim, se um NaN for econtrado no data frame, o valor inserido será o padrão. Nesse caso, o padrão é 'undefined'.
+- `"original_title": "clusK_str_undefined"`: A coluna "title" será uma chave de cluster do tipo texto (text ou varchar). Chaves de cluster não podem ser nulas, assim, se um NaN for econtrado no data frame, o valor inserido será o padrão. Nesse caso, o padrão é 'undefined'.
 
 - `"imdb_title_id": "str"`: A coluna "imdb_title_id" será do tipo texto (text ou varchar).
 
 - `"genre": "list"`: A coluna "genre" será do tipo lista de texto (list\<text>).
 
 - `"country": "set"`: A coluna "country" será do tipo conjunto de texto (set\<text>).
+
+- `"language": "list"`: A coluna "language" será do tipo lista de texto (list\<text>).
 
 - `"duration": "int"`: A coluna "duration" será do tipo inteiro (int).
 
@@ -125,17 +127,13 @@ O JSON de exemplo especifica a definição de uma tabela, onde cada atributo rep
 
 - `"description": "str"`: A coluna "description" será do tipo texto (text ou varchar).
 
-- `"original_title": "str"`: A coluna "original_title" será do tipo texto (text ou varchar).
-
 - `"budget": "der_parseBudgetToFloat"`: A coluna "budget" será derivada usando a função "parseBudgetToFloat". Procure essa função no arquivo `main.py`.
 
 - `"worldwide_gross_income": "der_parseIncomeToFloat"`: A coluna "worldwide_gross_income" será derivada usando a função "parseIncomeToFloat". Procure essa função no arquivo `main.py`.
 
-- `"metascore": "float"`: A coluna "metascore" será do tipo float.
+- `"avg_vote": "float"`: A coluna "metascore" será do tipo float.
 
 - `"votes": "int"`: A coluna "votes" será do tipo inteiro (int).
-
-- `"language": "list"`: A coluna "language" será do tipo lista de texto (list\<text>).
 
 Essa definição do JSON especifica a estrutura da tabela, incluindo os tipos de dados das colunas, bem como as funções derivadas, quando aplicável, para obter os valores das colunas.
 
