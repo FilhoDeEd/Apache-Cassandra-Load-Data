@@ -78,7 +78,7 @@ def parseIncomeToFloat(row: Series) -> str:
       
 
 keyspace_name = 'ks_imdb_filter'
-table_name = 'film_by_year'
+table_name = 'film_by_genre'
 batchSize = 10
 tuplesAmount = 100
 derivateFunctions = [getMainGenre, getMainLanguage, getYearPublished, parseBudgetToFloat, parseIncomeToFloat]
@@ -86,8 +86,8 @@ derivateFunctions = [getMainGenre, getMainLanguage, getYearPublished, parseBudge
 def main():
       inserts_generator(table_name, 'csv/all_df.csv', f'table_definitions/{table_name}_def.json',derivateFunctions)
 
-      #cluster = Cluster(['localhost'])
-      #session = cluster.connect()
+      cluster = Cluster(['localhost'])
+      session = cluster.connect()
 
       with open(f'insert_values/{table_name}.json') as file:
             insertStringsValues = json.load(file)
@@ -114,7 +114,7 @@ def main():
                   batch.add(insertString)
                   index += 1
 
-            #session.execute(batch)
+            session.execute(batch)
 
 
 if __name__ == '__main__': 
