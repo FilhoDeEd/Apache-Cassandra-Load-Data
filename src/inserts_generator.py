@@ -94,7 +94,7 @@ de inserção podem ser usadas posteriormente para inserir os dados em uma tabel
                 elif type == 'date':
 
                     if '-' not in row[column]:
-                        insertString = insertString + f"'{row[column]}-1-1'" + ','
+                        insertString = insertString + f"'{row[column]}-01-01'" + ','
                     else:
                         insertString = insertString + f"'{row[column]}'" + ','
 
