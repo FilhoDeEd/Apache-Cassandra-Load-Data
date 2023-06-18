@@ -78,7 +78,7 @@ def parseIncomeToFloat(row: Series) -> str:
       
 
 keyspace_name = 'ks_imdb_filter'
-table_name = 'film_by_genre'
+table_name = 'film_by_year'
 batchSize = 25
 tuplesAmount = 100
 derivateFunctions = [getMainGenre, getMainLanguage, getYearPublished, parseBudgetToFloat, parseIncomeToFloat]
@@ -112,7 +112,7 @@ def main():
             for j in range(batchSize):
                   insertString = insertStringSchema + insertStringsValues[index] + ';'
                   batch.add(insertString)
-                  index += 1
+                  index += 2
 
             session.execute(batch)
 
