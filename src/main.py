@@ -79,7 +79,7 @@ def parseIncomeToFloat(row: Series) -> str:
 
 keyspace_name = 'ks_imdb_filter'
 table_name = 'film_by_genre'
-batchSize = 10
+batchSize = 25
 tuplesAmount = 100
 derivateFunctions = [getMainGenre, getMainLanguage, getYearPublished, parseBudgetToFloat, parseIncomeToFloat]
 
