@@ -68,10 +68,10 @@ def parseBudgetToFloat(row: Series) -> str:
 
 def parseIncomeToFloat(row: Series) -> str:
       
-      if isna(row['worldwide_gross_income']):
+      if isna(row['worlwide_gross_income']):
             return 'NULL'
       else:
-            value = row['worldwide_gross_income']
+            value = row['worlwide_gross_income']
             value = re.sub(r'[^0-9]', '', value)
             value = float(value)
             return str(value)
