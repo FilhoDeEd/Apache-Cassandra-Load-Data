@@ -131,7 +131,7 @@ O JSON de exemplo especifica a definição de uma tabela, onde cada atributo rep
 
 - `"worldwide_gross_income": "der_parseIncomeToFloat"`: A coluna "worldwide_gross_income" será derivada usando a função "parseIncomeToFloat". Procure essa função no arquivo `main.py`.
 
-- `"avg_vote": "float"`: A coluna "metascore" será do tipo float.
+- `"avg_vote": "float"`: A coluna "avg_vote" será do tipo float.
 
 - `"votes": "int"`: A coluna "votes" será do tipo inteiro (int).
 
